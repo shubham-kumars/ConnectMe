@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import authRoutes from "./routes/auth.route.js";
+
 import dns from "dns";
 import "dotenv/config";
 import fs from "fs";
@@ -39,6 +41,8 @@ server.use(
 server.get("/health", (req, res) => {
   res.status(200).json({ ok: true });
 });
+
+server.use("/api/auth", authRoutes);
 
 
 // if the public directory exists, serve the static files
