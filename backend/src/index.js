@@ -5,6 +5,7 @@ import "dotenv/config";
 import fs from "fs";
 import path from "path";
 import { clerkMiddleware } from "@clerk/express";
+import clerkWebhook from "./webhooks/clerk.webhook.js";
 
 import { connectDB } from "./lib/db.js";
 
@@ -17,7 +18,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL;
 const publicDir = path.join(process.cwd(), "public");
 
 // it's important that you don't parse the webhook event data, it should be in the raw format
-app.use(
+server.use(
   "/api/webhooks/clerk",
   express.raw({ type: "application/json" }),
   clerkWebhook,
