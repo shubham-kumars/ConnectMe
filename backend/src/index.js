@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.route.js";
 
+
+
 import dns from "dns";
 import "dotenv/config";
 import fs from "fs";
@@ -9,6 +11,7 @@ import path from "path";
 import job from "./lib/cron.js";
 import { clerkMiddleware } from "@clerk/express";
 import clerkWebhook from "./webhooks/clerk.webhook.js";
+import messageRoutes from "./routes/message.route.js";
 
 import { connectDB } from "./lib/db.js";
 
@@ -41,8 +44,8 @@ server.use(
 server.get("/health", (req, res) => {
   res.status(200).json({ ok: true });
 });
-
 server.use("/api/auth", authRoutes);
+server.use("/api/messages", messageRoutes);
 
 
 // if the public directory exists, serve the static files
