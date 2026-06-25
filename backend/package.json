@@ -6,7 +6,9 @@
   "scripts": {
     "build": "npx rimraf dist && npx cpy \"src/**/*\" dist",
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    
+    "db:seed": "node src/seeds/user.seed.js"
   },
   "keywords": [],
   "author": "",
