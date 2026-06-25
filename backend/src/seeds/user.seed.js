@@ -10,7 +10,7 @@ dns.setServers(["1.1.1.1", "8.8.8.8"]);
 const seedUsers = [
   [
     "seed_alex_chen",
-    "Alex Chen",
+    "Rohan Singh",
     "alex.chen@example.com",
     "https://i.pravatar.cc/150?img=1",
   ],
